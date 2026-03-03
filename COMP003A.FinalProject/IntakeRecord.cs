@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace COMP003A.FinalProject;
-
+//Class for Intake Records
 public class IntakeRecord
 {
     // 25 FIELDS----------------------------
