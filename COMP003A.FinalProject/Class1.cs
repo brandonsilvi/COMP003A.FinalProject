@@ -40,6 +40,45 @@ public class IntakeRecord
     public bool HousingNeeded;
     public bool FirstGeneration;
     
-    //
+    // Constructors
+    public IntakeRecord(
+        string firstName,
+        string lastName,
+        string applicationType,
+        int age,
+        int satScore,
+        double gpa,
+        bool firstGeneration)
+    {
+        ApplicationID = applicationID;
+        LastName = lastName;
+        FirstName = firstName;
+        Age = age;
+        GPA = gpa;
+        SATScore = satScore;
+        ACTScore = ACTScore;
+        FirstGeneration = firstGeneration;
+        ApplicationType = applicationType;
+
+        // Using scores to derive AdmissionDecision
+        if (GPA >= 3.75 && SATScore >= 1350)
+        {
+            AdmissionDecision = "Admission Likely";
+        }
+        else if (GPA >= 2.5 || SATScore >= 1200)
+        {
+            AdmissionDecision = "Under Review";
+        }
+        else
+        {
+            AdmissionDecision = "Denied";
+        }
+        
+    }
+        
+        
+        
+        
+        )
 
 }
