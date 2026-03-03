@@ -73,12 +73,16 @@ public class IntakeRecord
         {
             AdmissionDecision = "Denied";
         }
-        
     }
-        
-        
-        
-        
-        )
-
+    //method 1- App info display
+    public void DisplayRecord()
+    {
+        Console.WriteLine($"ID: {ApplicationID} | {FirstName} {LastName} | GPA: {GPA} | Decision: {AdmissionDecision}");
+    }
+    //method 2-search menu
+    public bool MatchesName(string searchName)
+    {
+        return LastName.ToLower() == searchName.ToLower()
+            || FirstName.ToLower() == searchName.ToLower()
+    }
 }
