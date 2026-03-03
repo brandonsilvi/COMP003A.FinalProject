@@ -112,7 +112,26 @@ namespace COMP003A.FinalProject
                 vet);
             
             records.Add(record);
-            nextId++
+            nextId++;
+            
+            Console.WriteLine("Record added.");
+        }
+        
+        //View All using foreach
+        static void ViewAll(List<IntakeRecord> records)
+        {
+            if (records.Count == 0)
+            {
+                Console.WriteLine("No Records Available");
+                return;
+            }
+
+            foreach (IntakeRecord record in records)
+            {
+                record.DisplayRecord();
+            }
+        }
+        
         }
     }
 }
