@@ -42,23 +42,27 @@ public class IntakeRecord
     
     // Constructors
     public IntakeRecord(
+        int applicationID,
         string firstName,
         string lastName,
-        string applicationType,
         int age,
-        int satScore,
         double gpa,
-        bool firstGeneration)
+        int satScore,
+        int actScore,
+        string applicationType,
+        bool firstGeneration,
+        bool isVeteran)
     {
         ApplicationID = applicationID;
-        LastName = lastName;
         FirstName = firstName;
+        LastName = lastName;
         Age = age;
         GPA = gpa;
         SATScore = satScore;
-        ACTScore = ACTScore;
+        ACTScore = actScore;
         FirstGeneration = firstGeneration;
         ApplicationType = applicationType;
+        IsVeteran = isVeteran;
 
         // Using scores to derive AdmissionDecision
         if (GPA >= 3.75 && SATScore >= 1350)
@@ -83,6 +87,6 @@ public class IntakeRecord
     public bool MatchesName(string searchName)
     {
         return LastName.ToLower() == searchName.ToLower()
-            || FirstName.ToLower() == searchName.ToLower()
+               || FirstName.ToLower() == searchName.ToLower();
     }
 }
