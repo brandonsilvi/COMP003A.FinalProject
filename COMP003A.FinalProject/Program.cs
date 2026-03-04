@@ -108,7 +108,7 @@ namespace COMP003A.FinalProject
             
             Console.Write("Veteran (true or false): ");
             bool vet = bool.Parse(Console.ReadLine());
-
+            
             IntakeRecord record = new IntakeRecord(
                 nextId,
                 first,
@@ -117,11 +117,12 @@ namespace COMP003A.FinalProject
                 gpa,
                 sat,
                 act,
-                type,
+                type, 
                 firstGen,
                 vet);
             
             records.Add(record);
+
             nextId++;
             
             Console.WriteLine("Record added.");
@@ -192,5 +193,4 @@ namespace COMP003A.FinalProject
         }
     }
 }
-}
-}
+
