@@ -10,8 +10,8 @@ namespace COMP003A.FinalProject
             //control navigation
 
             List<IntakeRecord> records = new List<IntakeRecord>();
-            bool exit = false;
             int nextId = 1;
+            bool exit = false;
             
             //Menu loop
             while (!exit)
@@ -36,12 +36,14 @@ namespace COMP003A.FinalProject
                 catch (FormatException)
                 {
                     Console.WriteLine("Invalid Input");
+                    continue;
                 }
 
                 //Verification for choice within range
                 if (choice < 1 || choice > 5)
                 {
                     Console.WriteLine("Out of Range input. Please enter 1-5.");
+                    continue;
                 }
 
                 // switch choice for inputs 1-5
@@ -78,8 +80,16 @@ namespace COMP003A.FinalProject
             Console.Write("Last name: ");
             string last = Console.ReadLine();
             
-            Console.Write("Age: ");
-            int age = int.Parse(Console.ReadLine());
+            Console.Write("Age: "); //try catch on an int w/in AddRecord
+            int age = 0;
+            try
+            {
+                age = int.Parse(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Invalid age. Setting age to 0.");
+            }
             
             Console.Write("GPA: ");
             double gpa = double.Parse(Console.ReadLine());
@@ -181,4 +191,6 @@ namespace COMP003A.FinalProject
             Console.WriteLine($"Highest GPA: {highestGpa}");
         }
     }
+}
+}
 }
