@@ -18,8 +18,8 @@ namespace COMP003A.FinalProject
             {
                 Console.WriteLine("\n~~College Intake System~~");
                 Console.WriteLine("1. Add New Record");
-                Console.WriteLine("2. Search Records");
-                Console.WriteLine("3. View All Records");
+                Console.WriteLine("2. View All Records");
+                Console.WriteLine("3. Search Records");
                 Console.WriteLine("4. Display Data Summary");
                 Console.WriteLine("5. Exit");
                 Console.Write("Enter Choice: ");
@@ -131,7 +131,54 @@ namespace COMP003A.FinalProject
                 record.DisplayRecord();
             }
         }
-        
+        // Search Records
+        static void Search(List<IntakeRecord> records)
+        {
+            Console.Write("Enter name for search: ");
+            string name = Console.ReadLine();
+
+            bool found = false;
+
+            foreach (IntakeRecord record in records)
+            {
+                if (record.MatchesName(name))
+                {
+                    record.DisplayRecord();
+                    found = true;
+                }
+            }
+
+            if (!found)
+            {
+                Console.WriteLine("No matching records");
+            }
+        }
+        //Summary
+        static void ShowSummary(List<IntakeRecord> records)
+        {
+            if (records.Count == 0)
+            {
+                Console.WriteLine("No data for summary.");
+                return;
+            }
+
+            double totalGpa = 0;
+            double highestGpa = 0;
+
+            foreach (IntakeRecord record in records)
+            {
+                totalGpa += record.GPA;
+
+                if (record.GPA > highestGpa)
+                {
+                    highestGpa = record.GPA;
+                }
+            }
+
+            double average = totalGpa / records.Count;
+            
+            Console.WriteLine($"Average GPA: {average}");
+            Console.WriteLine($"Highest GPA: {highestGpa}");
         }
     }
 }
